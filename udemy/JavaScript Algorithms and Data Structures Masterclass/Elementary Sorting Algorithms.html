@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://cs.slides.com/colt_steele/elementary-sorting-algorithms#/7/0/1 -->
+<html class="sl-root decks show mz-history mz-svg mz-localstorage mz-csspositionsticky mz-supports mz-cssanimations mz-backgroundsize mz-no-cssgridlegacy mz-cssgrid mz-flexbox mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fullscreen mz-webpanimation loaded ua-windows ua-chrome has-visible-scrollbars reveal-is-ready fonts-are-ready" data-account="" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <title>Elementary Sorting Algorithms</title>
+    <meta name="description" content="A presentation created with Slides.">
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <meta property="og:title" content="Elementary Sorting Algorithms">
+    <meta property="og:description" content="A presentation created with Slides.">
+    <meta property="og:site_name" content="Slides">
+    <meta property="og:image" content="https://media.slid.es/thumbnails/b2791840f8bed4e5279990e10b96ba5e/thumb.jpg?1522013952">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://cs.slides.com/colt_steele/elementary-sorting-algorithms">
+    <meta property="fb:app_id" content="146002942236376">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="manifest" href="https://cs.slides.com/manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Elementary Sorting Algorithms_files/css2" onload="this.onload=null;this.removeAttribute(&#39;media&#39;);" rel="stylesheet" data-application-font="inter">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" data-application-font="inter">
+</noscript>
+
+    <link rel="stylesheet" media="all" href="./Elementary Sorting Algorithms_files/slides-9486051f6b033e85e64e4e925c2d2d8ccb9a3566a8a0e1f9d5c891e9f959a77e.css">
+    <link rel="stylesheet" media="all" href="./Elementary Sorting Algorithms_files/deck-consumption-063ad3883bf1bc6c130c8eb431116d1a95e6995cab3ff5450a7b1edd50b98080.css">
+    	<link rel="stylesheet" media="all" href="./Elementary Sorting Algorithms_files/deck-v2-2c328432ddb8cc1b279cc3893a7c32631cf776cd85b17efb85bb11826d3893c1.css">
+
+<style id="global-css-output" type="text/css"></style>
+
+
+<style id="user-css-output" type="text/css">@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
+.reveal {
+  
+
+  
+
+}
+.reveal .progress span {
+  background: #ff0000;
+}
+.reveal .slides {
+  font-family: 'Open Sans';
+}
+.reveal .slides h1,
+.reveal .slides h2,
+.reveal .slides h3 {
+  font-family: "Oswald";
+  font-weight: 300;
+}
+.reveal * {
+  font-family: "Oswald";
+}
+</style>
+
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="IA0yI5L7wC8HF4RXyVttujCBXKUSAtnvtth7i7gaWGOjst8Om5Ci++7Y3Y7SGG1GLzbpsGef0JUT0j1BkJV6jw==">
+    <script type="application/javascript" async="" defer="" src="https://by2.uservoice.com/t2/147810/web/track.js?_=1677648119372&amp;s=0&amp;c=__uvSessionData0&amp;d=eyJlIjp7InUiOiJodHRwczovL2NzLnNsaWRlcy5jb20vY29sdF9zdGVlbGUvZWxlbWVudGFyeS1zb3J0aW5nLWFsZ29yaXRobXMiLCJyIjoiaHR0cHM6Ly93d3cudWRlbXkuY29tLyJ9fQ%3D%3D"></script><script type="text/javascript" async="" src="./Elementary Sorting Algorithms_files/f7sH7NavrjjvuGxByaw.js.download"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LWVDH9STBJ"></script>
+<script type="text/javascript">
+  if( navigator.doNotTrack !== '1' && !/dnt=1/.test( window.location.search ) ) {
+    window.slidesMeasurementId = 'G-LWVDH9STBJ';
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LWVDH9STBJ', {
+      page_title: 'decks-show'
+    });
+
+  }
+</script>
+
+    	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Slides">
+	<meta name="twitter:title" content="Elementary Sorting Algorithms">
+	<meta name="twitter:description" content="A presentation created with Slides.">
+	<meta name="twitter:image" content="https://media.slid.es/thumbnails/b2791840f8bed4e5279990e10b96ba5e/thumb.jpg?1522013952">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <style type="text/css"></style><link rel="stylesheet" href="./Elementary Sorting Algorithms_files/montserrat.css"><link rel="stylesheet" href="./Elementary Sorting Algorithms_files/opensans.css"><style type="text/css" media="screen">.uv-icon{box-sizing:border-box;display:inline-block;cursor:pointer;position:relative;transition:all 300ms;width:39px;height:39px;position:fixed;z-index:100002;opacity:0.8;transition:opacity 100ms}.uv-icon.uv-bottom-right{bottom:10px;right:12px}.uv-icon.uv-top-right{top:10px;right:12px}.uv-icon.uv-bottom-left{bottom:10px;left:12px}.uv-icon.uv-top-left{top:10px;left:12px}.uv-icon.uv-is-selected{opacity:1}.uv-icon svg{width:39px;height:39px}.uv-icon .uv-tooltip-container{position:relative}.uv-icon .uv-tooltip-container .uv-icon-tooltip{display:none;position:absolute;height:20px;padding:4px 8px;background-color:#464653;color:white;font-size:12px;border-radius:4px;line-height:18px;font-family:"Open Sans", sans-serif;white-space:nowrap}.uv-icon .uv-tooltip-container .uv-icon-tooltip.left,.uv-icon .uv-tooltip-container .uv-icon-tooltip.right{top:0;bottom:0;margin:auto 10px}.uv-icon .uv-tooltip-container .uv-icon-tooltip.top,.uv-icon .uv-tooltip-container .uv-icon-tooltip.bottom{transform:translate(-30%);margin:10px auto}.uv-icon .uv-tooltip-container .uv-icon-tooltip.top{bottom:100%}.uv-icon .uv-tooltip-container .uv-icon-tooltip.bottom{top:100%}.uv-icon .uv-tooltip-container .uv-icon-tooltip.left{right:100%}.uv-icon .uv-tooltip-container .uv-icon-tooltip.right{left:100%}.uv-icon .uv-tooltip-container:hover .uv-icon-tooltip{display:block}.uv-icon-trigger{display:block;width:39px;height:39px;border:none;padding:0;cursor:pointer;background:none}.uv-popover{font-family:sans-serif;font-weight:100;font-size:13px;color:black;position:fixed;z-index:100001}.uv-popover-content{border-radius:5px;background:white;border:1px solid transparent;position:relative;width:325px;height:325px;transition:background 200ms}.uv-bottom .uv-popover-content{box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-top .uv-popover-content{box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-left .uv-popover-content{box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-right .uv-popover-content{box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-ie8 .uv-popover-content{position:relative}.uv-ie8 .uv-popover-content .uv-popover-content-shadow{display:block;background:black;content:'';position:absolute;left:-15px;top:-15px;width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=15,MakeShadow=true,ShadowOpacity=0.30);z-index:-1}.uv-popover-tail{border:9px solid transparent;width:0;z-index:10;position:absolute;transition:border-top-color 200ms}.uv-top .uv-popover-tail{bottom:-20px;border-top:11px solid white}.uv-bottom .uv-popover-tail{top:-20px;border-bottom:11px solid white}.uv-left .uv-popover-tail{right:-20px;border-left:11px solid white}.uv-right .uv-popover-tail{left:-20px;border-right:11px solid white}.uv-popover-loading{background:white;border-radius:5px;position:absolute;width:100%;height:100%;left:0;top:0}.uv-popover-loading-text{position:absolute;top:50%;margin-top:-0.5em;width:100%;text-align:center}.uv-popover-iframe-container{height:100%}.uv-popover-iframe{border-radius:5px;overflow:hidden}.uv-is-hidden{display:none}.uv-is-invisible{display:block !important;visibility:hidden !important}.uv-is-transitioning{display:block !important}.uv-no-transition{transition:none !important}.uv-fade{opacity:1;transition:opacity 200ms ease-out}.uv-fade.uv-is-hidden{opacity:0}.uv-scale-top,.uv-scale-top-left,.uv-scale-top-right,.uv-scale-bottom,.uv-scale-bottom-left,.uv-scale-bottom-right,.uv-scale-right,.uv-scale-right-top,.uv-scale-right-bottom,.uv-scale-left,.uv-scale-left-top,.uv-scale-left-bottom,.uv-slide-top,.uv-slide-bottom,.uv-slide-left,.uv-slide-right{opacity:1;transition:all 80ms ease-out}.uv-scale-top.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(-15%)}.uv-scale-top-left.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(-15%) translateX(-10%)}.uv-scale-top-right.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(-15%) translateX(10%)}.uv-scale-bottom.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(15%)}.uv-scale-bottom-left.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(15%) translateX(-10%)}.uv-scale-bottom-right.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(15%) translateX(10%)}.uv-scale-right.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(15%)}.uv-scale-right-top.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(15%) translateY(-10%)}.uv-scale-right-bottom.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(15%) translateY(10%)}.uv-scale-left.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(-15%)}.uv-scale-left-top.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(-15%) translateY(-10%)}.uv-scale-left-bottom.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(-15%) translateY(10%)}.uv-slide-top.uv-is-hidden{transform:translateY(-100%)}.uv-slide-bottom.uv-is-hidden{transform:translateY(100%)}.uv-slide-left.uv-is-hidden{transform:translateX(-100%)}.uv-slide-right.uv-is-hidden{transform:translateX(100%)}
+</style><script type="text/javascript" src="./Elementary Sorting Algorithms_files/highlight-0adde8531514527653fdb445e29c1cca3687dc50684c4b8f624246a318dc706a.js.download"></script><style>a, button, .sl-select, .sl-checkbox label, .radio label, .focus-outline { outline: none !important; }</style><script type="text/javascript" src="./Elementary Sorting Algorithms_files/zoom-e1f94838c054500b9ea32c1cdb27173f7796522bc2af1b0c8efe98c65a4c57b7.js.download"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+  <body data-new-gr-c-s-check-loaded="14.1027.0" data-gr-ext-installed="" style="transition: -webkit-transform 0.8s ease 0s;">
+    
+    <div id="container" class="container">
+      <header class="global-header show-on-scroll show">
+  <div class="wrapper">
+    <div class="slides-logo logo-image-or-text">
+      <a href="https://cs.slides.com/">
+        cs
+      </a>
+    </div>
+    <div class="nav-wrapper">
+      <ul class="nav">
+
+          <li class="nav-item">
+            <a class="nav-item-anchor" href="https://cs.slides.com/users/sign_in">
+              <span class="nav-item-label">Log in</span>
+            </a>
+          </li>
+
+      </ul>
+    </div>
+  </div>
+</header>
+
+      
+      <div id="main" class="main " role="main">
+        
+
+
+
+
+
+
+
+<div class="marquee">
+
+	<div class="reveal-frame">
+		<div class="reveal-viewport theme-font-montserrat theme-color-white-blue" style="--slide-width:960px; --slide-height:700px; --slide-scale:0.6745;">
+			<div class="reveal slide embedded has-horizontal-slides ready focused" role="application" data-transition-speed="default" data-background-transition="slide">
+				<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.6745);">
+					<section data-id="e2d0b629e9f25348b9ac55b7955264cd" class="past" style="display: none;" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 210px; height: auto;" data-block-id="587bd5ae71408bd8b279dad6a7909750">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" dir="ui">
+<h1><span style="color:#800080"><span style="font-size:105px">Elementary Sorting Algorithms</span></span></h1>
+</div>
+</div>
+
+</section><section data-id="f3648c168ab7b9400b8ac030f2dbca03" class="past" style="display: none;" data-fragment="3" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 88px; height: auto;" data-block-id="466c56ec2eae9fd7562e208982955004">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+        <h1>
+            <span style="color:#ff5722">
+                <span style="font-size:98px">Objectives</span>
+            </span>
+        </h1>
+        <p>&nbsp;</p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 704px; left: 128px; top: 298px;" data-block-id="78d7355c4fdbdf14b79968ae18ce9e25">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li class="fragment visible" data-fragment-index="0">Implement bubble sort</li>
+	<li class="fragment visible" data-fragment-index="1">Implement selection sort</li>
+	<li class="fragment visible" data-fragment-index="2">Implement insertion sort</li>
+	<li class="fragment visible" data-fragment-index="3">Understand why it is important to learn these simpler sorting algorithms</li>
+</ul>
+</div>
+</div></section><section data-id="c390d05da68384c898a71b75963b325d" class="past" style="display: none;" data-fragment="5" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 852px; left: 54px; top: 23px;" data-block-id="af90eb260c890d9fe0558a51c096959e">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="color:#3f51b5"><span style="font-size:1.2em">What is sorting?</span></span></h1>
+</div>
+</div>
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 210px;" data-block-id="1fc41b66a9fcd898368605f6d30619bd"><div class="sl-block-content fragment visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p>Sorting is the process of rearranging the items in a collection (e.g. an array) so that the items are in some kind of order.</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 350px;" data-block-id="9504da71f81cd0b89addeea95bbd8b70"><div class="sl-block-content fragment visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="1">
+<p>Examples</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 656px; left: 152px; top: 404px;" data-block-id="5f76308e95af9b4434755550dc605132"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<ul>
+	<li class="fragment visible" data-fragment-index="2">Sorting numbers from smallest to largest</li>
+	<li class="fragment visible" data-fragment-index="3">Sorting names alphabetically</li>
+	<li class="fragment visible" data-fragment-index="4">Sorting movies based on release year</li>
+	<li class="fragment visible" data-fragment-index="5">Sorting movies based on revenue</li>
+</ul>
+</div></div></section><section data-id="5cdffe3aa1691778aeebbd41d87ac614" class="past" style="display: none;" data-fragment="2" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="height: auto; width: 938px; left: 11px; top: 24px;" data-block-id="7748f2517f6d3623d419ab293721a900">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="color:#3f51b5"><span style="font-size:1.2em">Why do we need to learn this?</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 656px; left: 152px; top: 210px;" data-block-id="245c4ce05bb33b77e8e38fa0ce92aa35"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li class="fragment visible" data-fragment-index="0">Sorting is an incredibly common task, so it's good to know how it works</li>
+	<li class="fragment visible" data-fragment-index="1">There are many different ways to sort things, and different techniques have their own advantages and disadvantages</li>
+	<li class="fragment visible" data-fragment-index="2">Sorting sometimes has quirks, so it's good to understand how to navigate them</li>
+</ul>
+</div></div></section><section data-id="3b9da603845a7f41c831cf5591bed576" class="past" style="display: none;" data-fragment="3" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 23px;" data-block-id="f426f3c05d886e5f857d1820fc4cdeab">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#FF8C00">JavaScript has a sort method...</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 191px;" data-block-id="0fbc09f93f64566eefb737b27bf6125e"><div class="sl-block-content fragment visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-fragment-index="0">
+<p>Yes, it does!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 693px; left: 134px; top: 261px;" data-block-id="41f6de8c4a28971d411de74df766d108"><div class="sl-block-content fragment visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="1">
+<p>...but it doesn't always work the way you expect.</p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 926px; height: 70px; left: 18px; top: 395px;" data-block-id="5fddaae3899bf6e19512dfe62216f70f"><div class="sl-block-content fragment visible" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 150%;" data-fragment-index="2"><pre class="javascript"><code class="hljs">[ <span class="hljs-string">"Steele"</span>, <span class="hljs-string">"Colt"</span>, <span class="hljs-string">"Data Structures"</span>, <span class="hljs-string">"Algorithms"</span> ].sort();
+<span class="hljs-comment">// [ "Algorithms", "Colt", "Data Structures", "Steele" ]</span>
+</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 500px; height: 72px; left: 230px; top: 560px;" data-block-id="4506bed4169f90405453b4d42ae8be80"><div class="sl-block-content fragment visible" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 150%;" data-fragment-index="3"><pre class="javascript"><code class="hljs">[ <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">15</span>, <span class="hljs-number">10</span> ].sort();
+<span class="hljs-comment">// [ 10, 15, 4, 6 ]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 51px; height: 51px; left: 455px; top: 325px;" data-block-id="0f1f4c11da402336cd85c58ad8c6597f"><div class="sl-block-content fragment visible" data-shape-type="symbol-smiley" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 15;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 32 32"><g class="shape-element" fill="rgb(74, 134, 232)"><path d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16zM16 3c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13zM8 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM20 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM22.003 19.602l2.573 1.544c-1.749 2.908-4.935 4.855-8.576 4.855s-6.827-1.946-8.576-4.855l2.573-1.544c1.224 2.036 3.454 3.398 6.003 3.398s4.779-1.362 6.003-3.398z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 51px; height: 51px; left: 455px; top: 490px;" data-block-id="1df616454622385b5673fab5025abd4f"><div class="sl-block-content fragment visible" data-shape-type="symbol-sad" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 17;" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 32 32"><g class="shape-element" fill="rgb(74, 134, 232)"><path d="M16 32c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16zM16 3c7.18 0 13 5.82 13 13s-5.82 13-13 13-13-5.82-13-13 5.82-13 13-13zM8 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM20 10c0-1.105 0.895-2 2-2s2 0.895 2 2c0 1.105-0.895 2-2 2-1.105 0-2-0.895-2-2zM9.997 24.398l-2.573-1.544c1.749-2.908 4.935-4.855 8.576-4.855 3.641 0 6.827 1.946 8.576 4.855l-2.573 1.544c-1.224-2.036-3.454-3.398-6.003-3.398-2.549 0-4.779 1.362-6.003 3.398z"></path></g></svg></div></div></section><section data-id="b076ef44cc95faec95d9c449cd884517" class="past" style="display: block;" data-fragment="5" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 23px;" data-block-id="9ad98c029d10ca1d5a477fbcdc1ac805">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#FF8C00">Telling JavaScript how to sort</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 818px; left: 71px; top: 210px;" data-block-id="6818bccf0a2a9b99d35afc0a4222fecc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li class="fragment visible" data-fragment-index="0">The built-in sort method accepts an optional <em>comparator</em>&nbsp;function</li>
+	<li class="fragment visible" data-fragment-index="1">You can use this comparator function to tell JavaScript how you want it to sort</li>
+	<li class="fragment visible" data-fragment-index="2">The comparator looks at pairs of elements (<em>a</em>&nbsp;and <em>b</em>), determines their sort order based on the return value</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 819px; left: 141px; top: 447px;" data-block-id="bae91802a95b947ef6737b15c9209c43"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li class="fragment visible" data-fragment-index="3">If it returns a negative number, <em>a</em>&nbsp;should come before <em>b</em>
+</li>
+	<li class="fragment visible" data-fragment-index="4">If it returns a positive number, <em>a</em>&nbsp;should come after <em>b</em>,</li>
+	<li class="fragment visible" data-fragment-index="5">If it returns 0, <em>a</em>&nbsp;and <em>b</em>&nbsp;are the same as far as the sort is concerned</li>
+</ul>
+</div></div></section><section data-id="94d4f9206d674f9bfcc25d4ac36b1a93" class="past" style="display: block;" data-fragment="1" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 23px;" data-block-id="33df733f25e4db649b9ba423e6130dfb">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#FF8C00">Telling JavaScript how to sort</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 140px;" data-block-id="8bcb67c67bc15dd9ed91531ce9103741"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Examples</p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 849px; height: 210px; left: 63px; top: 210px;" data-block-id="f4ca41ff833968e24e79754cdb61500f"><div class="sl-block-content fragment visible" data-highlight-theme="solarized-light" style="z-index: 12; font-size: 150%;" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">numberCompare</span>(<span class="hljs-params">num1, num2</span>) </span>{
+  <span class="hljs-keyword">return</span> num1 - num2;
+}
+
+[ <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">15</span>, <span class="hljs-number">10</span> ].sort(numberCompare);
+<span class="hljs-comment">// [ 4, 6, 10, 15 ]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 849px; height: 223px; left: 63px; top: 455px;" data-block-id="2da39006137f5812a19359d5f6995169"><div class="sl-block-content fragment visible" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 150%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compareByLen</span>(<span class="hljs-params">str1, str2</span>) </span>{
+  <span class="hljs-keyword">return</span> str1.length - str2.length;
+}
+
+[ <span class="hljs-string">"Steele"</span>, <span class="hljs-string">"Colt"</span>, <span class="hljs-string">"Data Structures"</span>, <span class="hljs-string">"Algorithms"</span> ]
+  .sort(compareByLen);
+<span class="hljs-comment">// [ "Colt", "Steele", "Algorithms", "Data Structures" ]</span></code></pre></div></div></section><section data-id="517d94b27e7c1f1df9d2ffbbeac86505" class="present" style="display: block;" data-fragment="1"><div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 26px;" data-block-id="9158696db26721847773ae86a016a3dd">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="font-size:1.2em"><span style="color:#FF8C00">Before we sort, we must swap!</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+<div class="sl-block" data-block-type="code" data-block-id="7da210d2d7b6aeab67449569d1a8125c" style="min-width: 30px; min-height: 30px; width: 640px; height: 300px; left: 160px; top: 350px;"><div class="sl-block-content fragment visible current-fragment has-copy-button" data-highlight-theme="solarized-light" style="z-index: 12; font-size: 127%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span>(<span class="hljs-params">arr, idx1, idx2</span>) </span>{
+  <span class="hljs-keyword">var</span> temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+}
+
+<span class="hljs-comment">// ES2015</span>
+<span class="hljs-keyword">const</span> swap = <span class="hljs-function">(<span class="hljs-params">arr, idx1, idx2</span>) =&gt;</span> {
+  [arr[idx1],arr[idx2]] = [arr[idx2],arr[idx1]];
+}</code></pre><button class="copy-code-to-clipboard" data-code-to-copy="// ES5
+function swap(arr, idx1, idx2) {
+  var temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+}
+
+// ES2015
+const swap = (arr, idx1, idx2) =&gt; {
+  [arr[idx1],arr[idx2]] = [arr[idx2],arr[idx1]];
+}">Copy</button></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 686px; left: 137px; top: 210px;" data-block-id="e7a4c9ab3cd7f8e25d8cb17c82e9bdd2"><div class="sl-block-content fragment visible" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p>Many sorting algorithms involve some type of swapping functionality (e.g. swapping to numbers to put them in order)</p>
+</div></div></section><section data-id="d080dc80b14f96a8c0c0ff6e208beac6" class="future" style="display: block;" data-fragment="-1" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 23px;" data-block-id="ce92f8461e11bc8a5133dadb3f2a015f">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="color:#DAA520"><span style="font-size:1.2em">BubbleSort</span></span></h1>
+</div>
+</div>
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 210px;" data-block-id="f0b31f11676e14232e2f54604763ec2c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p>A sorting algorithm where the largest values bubble up to the top!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 80px; top: 314px;" data-block-id="2d5c0c9d066bed964a6bf9f86323688c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="1">
+<pre style="text-align: center;">[ 5, 3, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 160px; top: 350px;" data-block-id="bb0736d9b4bfefda906e8fe91ae722fc"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 14;" data-line-width="6px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="31" height="27" viewBox="0 200 31 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="3" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="3" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(3,203) rotate(131.055)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 188px; top: 350px;" data-block-id="310008b259a15287d895a5560571a41f"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 16;" data-line-width="6px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="30" height="27" viewBox="31 200 30 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="58" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="58" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(58,203) rotate(228.013)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 435px; left: 51px; top: 384px;" data-block-id="07fd4c4aab7054950829aa1f8953c580"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;" data-fragment-index="3">
+<pre style="text-align:center">[ 3, 5, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 440px; left: 49px; top: 447px;" data-block-id="4615891f8a5c191bb3bf003caee485d6"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;" data-fragment-index="5">
+<pre style="text-align:center">[ 3, 4, 5, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 422px; left: 58px; top: 524px;" data-block-id="efe7f7b23776b8dd856b84f7d82057a2"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-fragment-index="7">
+<pre style="text-align:center">[ 3, 4, 1, 5, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 378px; left: 80px; top: 594px;" data-block-id="45dc2f0b9b6c39e37328f89f441f119f"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;" data-fragment-index="9">
+<pre style="text-align:center">[ 3, 4, 1, 2, <span style="color:#008000">5</span> ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 212px; top: 420px;" data-block-id="948dabce82ec82a53e450a118cc4c725"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 15;" data-line-width="6px" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="31" height="27" viewBox="0 200 31 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="3" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="3" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(3,203) rotate(131.055)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 240px; top: 420px;" data-block-id="15313097adcadae51ef8a83197cc08ad"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 21;" data-line-width="6px" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="30" height="27" viewBox="31 200 30 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="58" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="58" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(58,203) rotate(228.013)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 269px; top: 483px;" data-block-id="de67ee4d9d56df53ad10cc3fe2bed732"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 22;" data-line-width="6px" data-fragment-index="6"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="31" height="27" viewBox="0 200 31 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="3" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="3" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(3,203) rotate(131.055)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 320px; top: 560px;" data-block-id="1920c92481ed174e798c88443b63828c"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 23;" data-line-width="6px" data-fragment-index="8"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="31" height="27" viewBox="0 200 31 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="3" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="3" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(3,203) rotate(131.055)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 297px; top: 483px;" data-block-id="c16fcd35c63917558e0d19e906e120d0"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 24;" data-line-width="6px" data-fragment-index="6"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="30" height="27" viewBox="31 200 30 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="58" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="58" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(58,203) rotate(228.013)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 347px; top: 560px;" data-block-id="637cf041e104185a601aa7a64965d9a0"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="31" data-line-y2="227" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 25;" data-line-width="6px" data-fragment-index="8"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="30" height="27" viewBox="31 200 30 27"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="58" y1="203" x2="31" y2="227"></line><line stroke="#ff9900" stroke-width="6" x1="58" y1="203" x2="31" y2="227"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(58,203) rotate(228.013)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 392px; top: 410px;" data-block-id="4f1038f25a1dcc34d047bd2691a3c7b1"><div class="sl-block-content fragment" data-line-x1="-8" data-line-y1="195" data-line-x2="200" data-line-y2="0" data-line-color="#6aa84f" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 26;" data-line-width="5px" data-fragment-index="10"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="208" height="195" viewBox="-8 0 208 195"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-4.5" y1="192.5" x2="200.5" y2="0.5"></line><line stroke="#6aa84f" stroke-width="5" x1="-4.5" y1="192.5" x2="200.5" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#6aa84f" stroke-width="5" transform="translate(-5,192) rotate(46.848)" d="M -11.25 -11.25 L 0 0 L 11.25 -11.25"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 254px; left: 600px; top: 371px;" data-block-id="7d44c3f8e10ca0c14b86b74fb63ee217"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27;" data-fragment-index="10">
+<p>5 is now in its sorted position!</p>
+</div></div></section><section data-id="e7461488699c07eb78372b46cd4367e4" hidden="" aria-hidden="true" class="future" style="display: block;"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 23px;" data-block-id="912056c778492e323f6d9f3debeb49b2">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="color:#DAA520"><span style="font-size:1.2em">BubbleSort Pseudocode</span></span></h1>
+</div>
+</div>
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 640px; left: 160px; top: 611px;" data-block-id="a2db662dfbc749a5996c50fe7be1dff3"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p><a href="https://visualgo.net/en/sorting" target="_blank">Let's visualize this!</a></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 776px; left: 92px; top: 210px;" data-block-id="7f5f152b3d351ed820a7967e74baa57d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(0, 0, 0);">
+<ul>
+	<li class="fragment" data-fragment-index="1"><span style="color:#000000">Start looping from <span style="text-align:left">with a variable called i </span>the end of the array towards the beginning</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="color:#000000">Start an inner loop with a variable called j from the beginning until i - 1</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="color:#000000">If arr[j] is greater than arr[j+1], swap those two values!</span></li>
+	<li class="fragment" data-fragment-index="4"><span style="color:#000000">Return the sorted array</span></li>
+</ul>
+</div></div></section><section data-id="7f99faf26162d214d8158941b083a9fc" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 41px; top: 10px;" data-block-id="738a71d53ad501aaf2276d06f41e2ae9">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+        <h1>
+            <span style="color:#00bcd4">
+                <span style="font-size:4.0em">YOUR</span>
+            </span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 41px; top: 300px;" data-block-id="c561271b90a5a460a049968f996e0e09">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+        <h1>
+            <span style="color:#f44336">
+                <span style="font-size:4.0em">TURN</span>
+            </span>
+        </h1>
+    </div>
+</div></section><section data-id="44b17d2aac6513fcd72d74b46bb7c8fa" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 23px;" data-block-id="aeec9a5f87ff1390056f10b091a44a68">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#2196f3">Selection Sort</span></span></h1>
+</div>
+</div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 173px; top: 210px;" data-block-id="940623d24cf1096525ab45372321ddf3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 78px; top: 350px;" data-block-id="f2ac342bd591ff146c24f3f859306326"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<pre style="text-align:center">[ 5, 3, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 158px; top: 386px;" data-block-id="ad7e4835abce8c59fd6bd1076f033f69"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="0" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 13;" data-line-width="6px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="0 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="205" x2="0" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="0" y1="205" x2="0" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(0,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 214px; top: 386px;" data-block-id="a7d94b8468e1bdc38908d6d1d91812c4"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="61" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 17;" data-line-width="6px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="61 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="61" y1="205" x2="61" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="61" y1="205" x2="61" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(61,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 435px; left: 49px; top: 420px;" data-block-id="92d92fd50e5ccf3bdd072876c6f709ee"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;" data-fragment-index="2">
+<pre style="text-align:center">[ 5, <span style="color:#008000">3</span>, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 440px; left: 46px; top: 490px;" data-block-id="a2b5eb04a5f07146799ed8d2b6bdd525"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-fragment-index="3">
+<pre style="text-align:center">[ 5, <span style="color:#008000">3</span>, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 422px; left: 56px; top: 560px;" data-block-id="fbb9b25db93a5fbd7e25b7e6c4369df1"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;" data-fragment-index="4">
+<pre style="text-align:center">[ 5, 3, 4, <span style="color:#008000">1</span>, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 378px; left: 78px; top: 630px;" data-block-id="2cfc75035ad4851e90f2fb52150f4b4d"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21;" data-fragment-index="5">
+<pre style="text-align:center">[ <span style="color:#008000">1</span>, 3, 4, 5, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 168px; top: 435px;" data-block-id="046ddc9b1c5ae5eac3cbf87a9166b02a"><div class="sl-block-content fragment" data-line-x1="-225" data-line-y1="202" data-line-x2="200" data-line-y2="0" data-line-color="#6aa84f" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 22;" data-line-width="5px" data-fragment-index="6"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="425" height="202" viewBox="-225 0 425 202"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-221.5" y1="200.5" x2="200.5" y2="0.5"></line><line stroke="#6aa84f" stroke-width="5" x1="-221.5" y1="200.5" x2="200.5" y2="0.5"></line><path style="fill: rgba(0,0,0,0);" stroke="#6aa84f" stroke-width="5" transform="translate(-222,200) rotate(64.579)" d="M -11.25 -11.25 L 0 0 L 11.25 -11.25"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 254px; left: 593px; top: 396px;" data-block-id="8d4a5f8adcceefa444391f7a1f3e0568"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;" data-fragment-index="6">
+<p>1 is now in its sorted position!</p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 157px; top: 456px;" data-block-id="1bc8e3e90951c62021347553fa823c97"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="0" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 16;" data-line-width="6px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="0 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="205" x2="0" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="0" y1="205" x2="0" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(0,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 266px; top: 456px;" data-block-id="17cb1e65645338703061c68a57d2ed1e"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="61" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 24;" data-line-width="6px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="61 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="61" y1="205" x2="61" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="61" y1="205" x2="61" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(61,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 160px; top: 526px;" data-block-id="66b4703aae6291ebc49c83e91af9414a"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="0" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 14;" data-line-width="6px" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="0 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="205" x2="0" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="0" y1="205" x2="0" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(0,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 320px; top: 526px;" data-block-id="21beea46867bed0412d9cb41c3e8eb0e"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="61" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 25;" data-line-width="6px" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="61 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="61" y1="205" x2="61" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="61" y1="205" x2="61" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(61,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 160px; top: 596px;" data-block-id="bb9620eb33d888c7d5e1397295734154"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="200" data-line-x2="0" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 15;" data-line-width="6px" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="0 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="205" x2="0" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="0" y1="205" x2="0" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(0,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 374px; top: 596px;" data-block-id="26bcf840f19c8df2aaffe5786e992824"><div class="sl-block-content fragment" data-line-x1="61" data-line-y1="200" data-line-x2="61" data-line-y2="234" data-line-color="#ff9900" data-line-start-type="line-arrow" data-line-end-type="none" style="z-index: 27;" data-line-width="6px" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="34" viewBox="61 200 1 34"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="61" y1="205" x2="61" y2="234"></line><line stroke="#ff9900" stroke-width="6" x1="61" y1="205" x2="61" y2="234"></line><path style="fill: rgba(0,0,0,0);" stroke="#ff9900" stroke-width="6" transform="translate(61,205) rotate(180)" d="M -13.5 -13.5 L 0 0 L 13.5 -13.5"></path></svg></div></div></section><section data-id="e357d67bfab590de37252a2fbddac832" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 23px;" data-block-id="a9ab07c7711373c6d408a7dcd9073b62">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="font-size:1.2em"><span style="color:#2196f3">Selection Sort Pseudocode</span></span></h1>
+</div>
+</div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 611px;" data-block-id="0d45107a95b5fbd7caace323369c41ef"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="5">
+<p><a href="https://visualgo.net/en/sorting" target="_blank">Let's visualize this!</a></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="3f2fa3179e5c5726821b78b7f4a66b47" style="height: auto; min-width: 30px; min-height: 30px; width: 936px; left: 12px; top: 210px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(0, 0, 0);">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="color:#000000">Store the first element as the smallest value you've seen so far.</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="color:#000000">Compare this item to the next item in the array until you find a smaller number.</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="color:#000000">If a smaller number is found, designate that smaller number to be the new "minimum" and continue until the end of the array.</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="color:#000000">If the "minimum" is not the value (index) you initially began with, swap the two values. </span></li>
+	<li class="fragment" data-fragment-index="4"><span style="color:#000000">Repeat this with the next element until the array is sorted.</span></li>
+</ul>
+</div></div></section><section data-id="ded1c3b9d2f989f257113097d9206a0a" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 41px; top: 10px;" data-block-id="dc4cbbc65f78d91fc5e8d4814968be43">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+        <h1>
+            <span style="color:#00bcd4">
+                <span style="font-size:4.0em">YOUR</span>
+            </span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 41px; top: 300px;" data-block-id="17bca61811da38e0c7a072c48bd6505b">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+        <h1>
+            <span style="color:#f44336">
+                <span style="font-size:4.0em">TURN</span>
+            </span>
+        </h1>
+    </div>
+</div></section><section data-id="74e04e1d210d8b11dda99ca61e5b7a27" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 23px;" data-block-id="934a94b249b012fcbd2fdbe48e270271">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#4caf50">Insertion Sort</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 210px;" data-block-id="190dd73306b35d31380ec70274b3be58"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-fragment-index="0">
+<p>Builds up the sort by gradually creating a larger left half which is always sorted</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 290px; top: 332px;" data-block-id="4c4f8885116a4ca45498683914e3489b"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="1">
+<pre style="text-align:center">[ 5, 3, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 290px; top: 402px;" data-block-id="92238cd5dbf7b3abb593c21b104c8c09"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="3">
+<pre style="text-align:center">[ 3, 5, 4, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 290px; top: 472px;" data-block-id="e610fd2d33292d002f19e3973a31c86c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="4">
+<pre style="text-align:center">[ 3, 4, 5, 1, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 290px; top: 542px;" data-block-id="b5d378e33ed6136403110075c734d187"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="5">
+<pre style="text-align:center">[ 1, 3, 4, 5, 2 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 380px; left: 290px; top: 612px;" data-block-id="2e5e01e7ad302893192e12cc1f4bd728"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="6">
+<pre style="text-align:center">[ 1, 2, 3, 4, 5 ]</pre>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 33px; height: 32px; left: 409px; top: 334px;" data-block-id="61c043ab4872d2b530655f7083a6b7a3"><div class="sl-block-style" style="z-index: 17; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="circle" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 17;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 33 32"><ellipse rx="16.5" ry="16" cx="16.5" cy="16" class="shape-element" fill="rgb(255, 0, 0)"></ellipse></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 33px; height: 32px; left: 463px; top: 404px;" data-block-id="5176833759c26e8554e1af2fd22fcea8"><div class="sl-block-style" style="z-index: 18; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="circle" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 18;" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 33 32"><ellipse rx="16.5" ry="16" cx="16.5" cy="16" class="shape-element" fill="rgb(255, 0, 0)"></ellipse></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 33px; height: 32px; left: 517px; top: 474px;" data-block-id="8ea67c96e5e4c8e80d1abe0da75481dc"><div class="sl-block-style" style="z-index: 19; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="circle" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 19;" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 33 32"><ellipse rx="16.5" ry="16" cx="16.5" cy="16" class="shape-element" fill="rgb(255, 0, 0)"></ellipse></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 33px; height: 32px; left: 571px; top: 545px;" data-block-id="c3d6eb6a483b9121e595622d0a139060"><div class="sl-block-style" style="z-index: 20; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="circle" data-shape-fill-color="rgb(255, 0, 0)" data-shape-stretch="true" style="z-index: 20;" data-fragment-index="5"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 33 32"><ellipse rx="16.5" ry="16" cx="16.5" cy="16" class="shape-element" fill="rgb(255, 0, 0)"></ellipse></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 35px; height: 32px; left: 354px; top: 334px;" data-block-id="4ee78c04c67dbb9866275331ceaabc5b"><div class="sl-block-style" style="z-index: 21; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 21;" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 35 32"><rect width="35" height="32" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 88px; height: 32px; left: 354px; top: 406px;" data-block-id="0fb9e6240f41f8debf01bb257546f05b"><div class="sl-block-style" style="z-index: 22; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 22;" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 88 32"><rect width="88" height="32" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 142px; height: 32px; left: 354px; top: 474px;" data-block-id="102fb01fa27bc86773020a9b6922216e"><div class="sl-block-style" style="z-index: 23; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 23;" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 142 32"><rect width="142" height="32" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 196px; height: 32px; left: 354px; top: 545px;" data-block-id="a0513a7c0711d524206e8993a3b20d36"><div class="sl-block-style" style="z-index: 24; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 24;" data-fragment-index="5"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 196 32"><rect width="196" height="32" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 250px; height: 32px; left: 354px; top: 616px;" data-block-id="f444976ef6be5e577f05ce6af2f3eba5"><div class="sl-block-style" style="z-index: 26; opacity: 0.5;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 26;" data-fragment-index="6"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 250 32"><rect width="250" height="32" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div></div></section><section data-id="7b7fa32b1763ff082376e70f0fce8e2c" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 23px;" data-block-id="10856a4240ce7701c674fd6e56df6cc5">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#4caf50">Insertion Sort Pseudocode</span></span></h1>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" data-block-id="85066675b8398cd98b75d3da82979c29" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 611px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-fragment-index="4">
+<p><a href="https://visualgo.net/en/sorting" target="_blank">Let's visualize this!</a></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 824px; left: 68px; top: 210px;" data-block-id="41ad0a4840ecd53e5805f41020ee2103"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="color:#000000">Start by picking the second element in the array</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="color:#000000">Now compare the second element with the one before it and swap if necessary.</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="color:#000000">Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place.</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="color:#000000">Repeat until the array is sorted.</span></li>
+</ul>
+</div></div></section><section data-id="c6a5935a31ff1fa7dbc588815845b564" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 41px; top: 10px;" data-block-id="057e31ccae62b3b96440d7a1cec30965">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+        <h1>
+            <span style="color:#00bcd4">
+                <span style="font-size:4.0em">YOUR</span>
+            </span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 41px; top: 300px;" data-block-id="40acfdf2332b9ec1e6aab8fc2a50ff26">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+        <h1>
+            <span style="color:#f44336">
+                <span style="font-size:4.0em">TURN</span>
+            </span>
+        </h1>
+    </div>
+</div></section><section data-id="811cbd71716396bb14da2e710b7734d4" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 852px; left: 54px; top: 93px;" data-block-id="a41258a6df6930d4e152ae57b2e22060">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h1><span style="font-size:1.2em"><span style="color:#40E0D0">Big O of Sorting Algorithms</span> </span></h1>
+</div>
+</div>
+<div class="sl-block" data-block-type="table" data-block-id="c1c3fac378eaa453a7a578ae9958084f" style="height: auto; min-width: 120px; min-height: 30px; width: 908px; left: 26px; top: 280px;">
+    <div class="sl-block-content" style="z-index: 11; font-size: 95%; text-align: center;" data-table-cols="5" data-table-rows="4">
+        <table>
+            <tbody>
+                <tr>
+                    <th style="width: 215px;">Algorithm</th>
+                    <th>Time Complexity (Best)</th>
+                    <th>Time Complexity (Average)</th>
+                    <th>Time Complexity (Worst)</th>
+                    <th>Space Complexity</th>
+                </tr>
+                <tr>
+                    <td style="width: 215px;">Bubble Sort</td>
+                    <td>O(<em>n</em>)</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td style="width: 215px;">Insertion Sort</td>
+                    <td>O(<em>n</em>)</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td style="width: 215px;">Selection Sort</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(<em>n</em>&nbsp; )</td>
+                    <td>O(1)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 327px; top: 490px;" data-block-id="f51d0f79bcc4793d56c5172dc78568b0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 500px; top: 394px;" data-block-id="cfa5a0a6f3880c4091045690e1288f48"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 500px; top: 443px;" data-block-id="9607c1ec03aab0c208827d13d8a5dec0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 500px; top: 490px;" data-block-id="e171a06f69b56ee05d0c20d2a6d25fb6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 673px; top: 394px;" data-block-id="b7bea548e4bcdc77f35111ad4ae03808"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 673px; top: 443px;" data-block-id="e06f9d32738dd5626af591b7634fbd95"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 40px; left: 673px; top: 490px;" data-block-id="abdff5b24508be7aa64228e536dfa690"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;">
+<p><span style="font-size:0.7em">2</span></p>
+</div></div></section><section data-id="2a058f0840c658023e88d594f524f1fd" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 13px; height: auto;" data-block-id="d30da9ce7810cd92e63d47e3c9d3665e">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h1>
+            <span style="color:#ff9800">
+                <span style="font-size:98px">Recap</span>
+            </span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 810px; left: 75px; top: 210px;" data-block-id="78d7355c4fdbdf14b79968ae18ce9e25">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li class="fragment" data-fragment-index="0">Sorting is <em>fun</em>damental!</li>
+	<li class="fragment" data-fragment-index="1">Bubble sort, selection sort, and insertion sort are all roughly equivalent</li>
+	<li class="fragment" data-fragment-index="2">All have average time complexities that are quadratic</li>
+	<li class="fragment" data-fragment-index="3">We can do better...but we need more complex algorithms!</li>
+</ul>
+</div>
+</div></section>
+				</div>
+				<div class="deck-kudos" style="opacity: 1;">
+					<button class="kudos-button kudos-trigger" data-kudos-id="1213393" data-kudoed-by-user="false">
+						<div class="kudos-heart">
+							<span class="kudos-icon icon i-heart-fill"></span>
+						</div>
+						<div class="kudos-count" data-kudos-value="84" data-kudos-id="1213393"></div>
+					</button>
+				</div>
+			<div class="backgrounds"><div class="slide-background past" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background past" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background past" data-loaded="true" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background past" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background present" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: block;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left enabled fragmented" aria-label="previous slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0.438889);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Before we sort, we must swap! // ES5 function swap ( arr, idx1, idx2 ) { var temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+} // ES2015 const swap = ( arr, idx1, idx2 ) =&gt; {
+  [arr[idx1],arr[idx2]] = [arr[idx2],arr[idx1]];
+} Many sorting algorithms involve some type of swapping functionality (e.g. swapping to numbers to put them in order) </div></div>
+		</div>
+	</div>
+
+	<div class="pill summary-pill" style="left: 480.901px;">
+		<div class="pill-picture" style="background-image: url(https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140&amp;d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+		<div class="pill-content">
+			<h4 class="pill-title">Elementary Sorting Algorithms</h4>
+			<p class="pill-description">By colt_steele</p>
+		</div>
+	</div>
+
+	<div class="pill instructions-pill" style="left: 564px;">
+		<div class="pill-picture"></div>
+		<div class="pill-content">
+			<h4 class="pill-title"></h4>
+			<p class="pill-description"></p>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="column">
+	<header class="deck-card ">
+		<div class="deck-card-header">
+			<div class="deck-sharing">
+				<div class="deck-social">
+					<a href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=Elementary%20Sorting%20Algorithms&amp;p[summary]=A%20presentation%20created%20with%20Slides.&amp;p[url]=https://cs.slides.com/colt_steele/elementary-sorting-algorithms&amp;p[images][0]=https://media.slid.es/thumbnails/b2791840f8bed4e5279990e10b96ba5e/thumb.jpg?1522013952" class="deck-social-button facebook-share-button" data-tooltip="Share on Facebook">
+					</a>
+					<a href="http://twitter.com/share?text=Elementary%20Sorting%20Algorithms&amp;url=https%3A%2F%2Fcs.slides.com%2Fcolt_steele%2Felementary-sorting-algorithms&amp;via=slides" class="deck-social-button twitter-share-button" data-tooltip="Share on Twitter">
+						<span class="icon i-twitter"></span>
+					</a>
+				</div>
+			</div>
+
+			<div class="deck-options">
+				<a class="button white fullscreen-button" data-tooltip="Fullscreen" href="https://cs.slides.com/colt_steele/elementary-sorting-algorithms/fullscreen"><span class="icon i-fullscreen"></span></a>
+				<button class="button white share-button" data-tooltip="Share"><span class="icon i-share"></span></button>
+			</div>
+		</div>
+
+
+		<div class="clear"></div>
+
+		<div class="deck-card-body">
+			<div class="deck-info">
+				<h1 class="title">Elementary Sorting Algorithms</h1>
+				<ul class="deck-meta">
+					<li data-tooltip="Published date" data-tooltip-delay="500">
+						<span class="icon i-clock"></span>
+						<time class="value ago" datetime="2018-07-23 23:44:08 UTC">5 years ago</time>
+					</li>
+					<li data-tooltip="Kudos" data-tooltip-delay="500">
+						<span class="icon i-heart-fill"></span>
+						<span class="value" data-kudos-value="84" data-kudos-id="1213393"></span>
+					</li>
+					<li data-tooltip="Views" data-tooltip-delay="500">
+						<span class="icon i-eye"></span>
+						<span class="value">11,934</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="user-info">
+	<div class="picture" style="background-image: url(https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140&amp;d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></div>
+	<div class="text">
+		<h3 class="title">
+			<a href="https://cs.slides.com/colt_steele" class="username">colt_steele</a>
+		</h3>
+		<p class="description"></p>
+		<ul class="links">
+			
+			
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+
+			<div class="clear"></div>
+		</div>
+	</header>
+
+	<section class="deck-list related-decks">
+		<h2>More from <a href="https://cs.slides.com/colt_steele">colt_steele</a></h2>
+		<ul class="carousel">
+			<li class="sl-deck-thumbnail" data-preview-url="/colt_steele/built-in-data-structures-30">
+  <a class="deck-link" href="https://cs.slides.com/colt_steele/built-in-data-structures-30"></a>
+  <div class="deck-thumb">
+      <img class="deck-thumb-image" data-src="https://media.slid.es/thumbnails/83334fcf77fc5aad417922d90e04e8df/thumb.jpg?1547788409" src="./Elementary Sorting Algorithms_files/thumb.jpg">
+  </div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Big O Youtube</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="https://cs.slides.com/colt_steele">
+        <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140&amp;d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+        <span class="name">colt_steele</span>
+      </a>
+      <div class="stats">
+        <div>5750<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+<li class="sl-deck-thumbnail" data-preview-url="/colt_steele/advanced-data-structures">
+  <a class="deck-link" href="https://cs.slides.com/colt_steele/advanced-data-structures"></a>
+  <div class="deck-thumb">
+      <img class="deck-thumb-image" data-src="https://media.slid.es/thumbnails/8b82e7117fcf7aece2cd92d625103441/thumb.jpg?1521568488" src="./Elementary Sorting Algorithms_files/thumb(1).jpg">
+  </div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Advanced Data Structures (work in progress)</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="https://cs.slides.com/colt_steele">
+        <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140&amp;d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+        <span class="name">colt_steele</span>
+      </a>
+      <div class="stats">
+        <div>4074<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+<li class="sl-deck-thumbnail" data-preview-url="/colt_steele/dynamic-programming">
+  <a class="deck-link" href="https://cs.slides.com/colt_steele/dynamic-programming"></a>
+  <div class="deck-thumb">
+      <img class="deck-thumb-image" data-src="https://media.slid.es/thumbnails/884e9c67126a34546821ce2236436603/thumb.jpg?1541298935" src="./Elementary Sorting Algorithms_files/thumb(2).jpg">
+  </div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Dynamic Programming (work in progress)</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="https://cs.slides.com/colt_steele">
+        <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140&amp;d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+        <span class="name">colt_steele</span>
+      </a>
+      <div class="stats">
+        <div>6314<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+<li class="sl-deck-thumbnail" data-preview-url="/colt_steele/built-in-data-structures-25">
+  <a class="deck-link" href="https://cs.slides.com/colt_steele/built-in-data-structures-25"></a>
+  <div class="deck-thumb">
+      <img class="deck-thumb-image" data-src="https://media.slid.es/thumbnails/1e55187f852a3cd76026c5f24cc1f581/thumb.jpg?1533151329" src="./Elementary Sorting Algorithms_files/thumb(3).jpg">
+  </div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Big O Of Arrays and Objects</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="https://cs.slides.com/colt_steele">
+        <span class="picture" style="background-image: url(https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140&amp;d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png)"></span>
+        <span class="name">colt_steele</span>
+      </a>
+      <div class="stats">
+        <div>17.2k<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+
+		</ul>
+	</section>
+
+</div>
+      </div>
+      <footer class="global-footer global-footer-minimal">
+  <div class="legal">
+    <a href="https://help.slides.com/">Help</a>
+    • <a href="https://cs.slides.com/terms?root=true">Terms</a>
+    • <a href="https://cs.slides.com/privacy?root=true">Privacy</a>
+    • <span class="copyright">© 2023 Slides, Inc.</span>
+   </div>
+</footer>
+
+    </div> <!--! end of #container -->
+    
+<script>
+	var SLConfig = {"team":{"id":1382,"name":"cs","slug":"cs","logo":null,"default_theme_id":1655,"user_count":1,"allow_scripts":false,"beta_new_editor":true,"manually_upgraded":false,"allow_public_decks":true,"google_domain":null,"deck_templates_mode":null,"default_internal_role":"viewer"},"deck":{"id":1213393,"slug":"elementary-sorting-algorithms","title":"Elementary Sorting Algorithms","description":"","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2018-07-23T23:44:08.133Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/b2791840f8bed4e5279990e10b96ba5e/thumb.jpg?1522013952","view_count":11934,"user":{"id":782260,"username":"colt_steele","name":"","description":"","thumbnail_url":"https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"enterprise","team_id":1382,"settings":{"id":633417,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"membership":{"role":"owner","manager":true,"activated":true}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":19,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":null,"data_updated_at":1524161383241,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":null},"user":{"id":782260,"username":"colt_steele","name":"","description":"","thumbnail_url":"https://www.gravatar.com/avatar/a1dde473e230c6ca7df63236f567e9ca?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"enterprise","team_id":1382,"settings":{"id":633417,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"membership":{"role":"owner","manager":true,"activated":true}}};
+</script>
+    <script src="./Elementary Sorting Algorithms_files/deck-consumption-fc5c431c042c0e639158ccb3b914f01d4a2c455d5a42dfd04885b7f729fc682e.js.download" defer="defer"></script>
+    	<script src="./Elementary Sorting Algorithms_files/deck-89b26e95d99aad25517102ef3d362adae923bcda3309b9918057a0e47bb92a3c.js.download" defer="defer"></script>
+	
+
+
+    <script>
+UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+UserVoice.push(['set', {
+  accent_color: '#448dd6',
+  trigger_color: 'white',
+  trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+  position: 'automatic'
+}]);
+
+</script>
+
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

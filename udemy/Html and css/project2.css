@@ -1,0 +1,11 @@
+#div1 {
+  width: auto;
+  border: 3px solid black;
+  background: greenyellow;
+  color: azure;
+  margin: 0 0 0 30px;
+  padding: 20px;
+}
+.undelinee {
+  text-decoration: underline;
+}

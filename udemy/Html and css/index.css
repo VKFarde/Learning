@@ -1,0 +1,16 @@
+.first {
+  color: green;
+  background: white;
+  padding: 20px;
+}
+.second {
+  color: black;
+  background-color: red;
+  padding: 20px;
+}
+.third {
+  color: aqua;
+  background: darkgray;
+  border-radius: 5px;
+  padding: 20px;
+}
